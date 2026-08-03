@@ -4,6 +4,7 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useState } from 'react';
 import { Bed, Bath, Maximize, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface RoomCardProps {
   title: string;
@@ -67,15 +68,26 @@ export default function RoomCard({ title, description, price, image, amenities, 
             <motion.div
               animate={{ scale: isHovered ? 1.1 : 1 }}
               transition={{ duration: 0.6 }}
-              className="w-full h-full bg-gradient-to-br from-secondary-bg to-primary-bg"
+              className="w-full h-full bg-gradient-to-br from-secondary-bg to-primary-bg relative"
             >
-              {/* Placeholder for room image */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center">
-                  <Bed className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-accent-gold/30 mx-auto mb-2" />
-                  <p className="text-text-secondary text-xs sm:text-sm">Room Image</p>
+              {image ? (
+                <Image
+                  src={image}
+                  alt={`${title} at Gravity Homestays - ${title.toLowerCase()}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="eager"
+                  priority
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <Bed className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-accent-gold/30 mx-auto mb-2" />
+                    <p className="text-text-secondary text-xs sm:text-sm">Room Image</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </motion.div>
             
             {/* Price tag */}

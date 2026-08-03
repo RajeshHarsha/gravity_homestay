@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-secondary-bg border-t border-accent-gold/20 py-12 sm:py-16 px-4">
+    <footer className="relative bg-secondary-bg border-t border-accent-gold/20 py-12 sm:py-16 px-4 w-full">
       {/* Background effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[500px] md:w-[600px] h-[300px] sm:h-[500px] md:h-[600px] bg-accent-gold/5 rounded-full blur-3xl" />
       
@@ -65,20 +65,20 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-accent-gold mt-1 flex-shrink-0" />
                 <span className="text-text-secondary text-sm">
-                  123 Luxury Lane, Sunset Valley<br />
-                  Kerala, India 680001
+                  Swarna bharathi, indoor stadium road, Resapuvanipalem, Dwaraka Nagar, Visakhapatnam, Andhra Prades
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent-gold flex-shrink-0" />
                 <a href="tel:+919876543210" className="text-text-secondary text-sm hover:text-accent-gold transition-colors">
-                  +91 98765 43210
+                  8886222497<br />
+                  8886222498
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent-gold flex-shrink-0" />
                 <a href="mailto:info@gravityhomestays.com" className="text-text-secondary text-sm hover:text-accent-gold transition-colors">
-                  info@gravityhomestays.com
+                  gravityhomestays@gmail.com
                 </a>
               </li>
             </ul>
@@ -137,6 +137,38 @@ export default function Footer() {
           </motion.div>
         </div>
 
+        {/* Map Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mb-8"
+        >
+          <h4 className="text-text-primary font-medium mb-4">Location</h4>
+          <div className="relative w-full h-48 sm:h-64 rounded-lg overflow-hidden border border-accent-gold/20">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.123456789!2d83.315565!3d17.731956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDQzJzU1LjUiTiA4M8KwMTgnNTYuMSJF!5e0!3m2!1sen!2sin!4v1234567890"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Gravity Homestays Location"
+            />
+          </div>
+          <a
+            href="https://www.google.com/maps/@17.731956,83.315565,99m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDcyOS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-3 text-accent-gold text-sm hover:underline"
+          >
+            <MapPin className="w-4 h-4" />
+            Open in Google Maps
+          </a>
+        </motion.div>
+
         {/* Bottom bar */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -147,12 +179,11 @@ export default function Footer() {
           <p className="text-text-secondary text-sm text-center md:text-left">
             © {currentYear} Gravity Homestays. All rights reserved.
           </p>
-          <div className="flex gap-4 sm:gap-6">
-            <a href="#" className="text-text-secondary text-sm hover:text-accent-gold transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-text-secondary text-sm hover:text-accent-gold transition-colors">
-              Terms of Service
+          <div className="flex gap-4 sm:gap-6" style={{ color: 'black' }}>
+            <a href="https://www.instagram.com/harsha_vardhan.raj/" className="text-text-secondary text-sm hover:text-accent-gold transition-colors">
+              Design & Developed by
+            
+              Harsha_vardhan.raj
             </a>
           </div>
         </motion.div>

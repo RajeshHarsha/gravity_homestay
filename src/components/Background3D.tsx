@@ -88,7 +88,7 @@ function BuildingModel() {
 
 export default function Background3D() {
   return (
-    <div className="fixed inset-0 -z-10 opacity-40">
+    <div className="fixed inset-0 -z-10 opacity-40" aria-hidden="true" role="presentation">
       <Canvas>
         <Suspense fallback={null}>
           <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={45} />
@@ -97,14 +97,14 @@ export default function Background3D() {
             enablePan={false}
             enableRotate={false}
           />
-          
+
           <ambientLight intensity={0.8} />
           <pointLight position={[10, 10, 10]} intensity={1.2} color="#EBC57B" />
           <pointLight position={[-10, -5, -10]} intensity={0.8} color="#D4A24C" />
-          
+
           <BuildingModel />
           <FloatingParticles />
-          
+
           <Environment preset="sunset" />
           <ContactShadows
             position={[0, -3, 0]}

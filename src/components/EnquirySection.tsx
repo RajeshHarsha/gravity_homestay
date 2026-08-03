@@ -50,7 +50,7 @@ export default function EnquirySection() {
     }
   }, [checkIn, checkOut]);
 
-  const WHATSAPP_NUMBER = '918074127898'; // Replace with actual WhatsApp number
+  const WHATSAPP_NUMBER = '918886222497'; // Replace with actual WhatsApp number
 
   const onSubmit = async (data: EnquiryFormData) => {
     setIsSubmitting(true);
@@ -100,12 +100,12 @@ ${data.specialRequest || 'None'}
   };
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 px-4 overflow-hidden">
+    <section className="relative py-16 sm:py-24 md:py-32 px-4 w-full overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary-bg via-secondary-bg/30 to-primary-bg" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] md:w-[1000px] h-[500px] sm:h-[700px] md:h-[1000px] bg-accent-gold/5 rounded-full blur-3xl" />
       
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-4xl mx-auto w-full">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -114,7 +114,7 @@ ${data.specialRequest || 'None'}
           transition={{ duration: 0.8 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-text-primary mb-4">
+          <h2 id="contact-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-text-primary mb-4">
             Live Luxury <span className="text-gradient">& Comfort</span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-text-secondary max-w-2xl mx-auto px-4">
@@ -153,45 +153,55 @@ ${data.specialRequest || 'None'}
               {/* Name and Phone */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm text-text-secondary">Full Name</label>
+                  <label htmlFor="fullName" className="text-sm text-text-secondary">Full Name</label>
                   <input
+                    id="fullName"
                     {...register('fullName', { required: 'Name is required' })}
                     placeholder="John Doe"
+                    autoComplete="name"
                     className={cn(
                       "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
                       "text-text-primary placeholder:text-text-secondary/30",
-                      "focus:border-accent-gold/50 focus:outline-none transition-colors",
+                      "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors",
                       errors.fullName && "border-red-500/50"
                     )}
+                    aria-invalid={errors.fullName ? 'true' : 'false'}
+                    aria-describedby={errors.fullName ? 'fullName-error' : undefined}
                   />
                   {errors.fullName && (
-                    <p className="text-red-400 text-xs">{errors.fullName.message}</p>
+                    <p id="fullName-error" className="text-red-400 text-xs" role="alert">{errors.fullName.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm text-text-secondary">Phone</label>
+                  <label htmlFor="phone" className="text-sm text-text-secondary">Phone</label>
                   <input
+                    id="phone"
                     {...register('phone', { required: 'Phone is required' })}
                     placeholder="+91 98765 43210"
+                    autoComplete="tel"
+                    type="tel"
                     className={cn(
                       "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
                       "text-text-primary placeholder:text-text-secondary/30",
-                      "focus:border-accent-gold/50 focus:outline-none transition-colors",
+                      "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors",
                       errors.phone && "border-red-500/50"
                     )}
+                    aria-invalid={errors.phone ? 'true' : 'false'}
+                    aria-describedby={errors.phone ? 'phone-error' : undefined}
                   />
                   {errors.phone && (
-                    <p className="text-red-400 text-xs">{errors.phone.message}</p>
+                    <p id="phone-error" className="text-red-400 text-xs" role="alert">{errors.phone.message}</p>
                   )}
                 </div>
               </div>
 
               {/* Email */}
               <div className="space-y-2">
-                <label className="text-sm text-text-secondary">Email</label>
+                <label htmlFor="email" className="text-sm text-text-secondary">Email</label>
                 <input
-                  {...register('email', { 
+                  id="email"
+                  {...register('email', {
                     required: 'Email is required',
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -199,29 +209,34 @@ ${data.specialRequest || 'None'}
                     }
                   })}
                   placeholder="john@example.com"
+                  autoComplete="email"
+                  type="email"
                   className={cn(
                     "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
                     "text-text-primary placeholder:text-text-secondary/30",
-                    "focus:border-accent-gold/50 focus:outline-none transition-colors",
+                    "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors",
                     errors.email && "border-red-500/50"
                   )}
+                  aria-invalid={errors.email ? 'true' : 'false'}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                 />
                 {errors.email && (
-                  <p className="text-red-400 text-xs">{errors.email.message}</p>
+                  <p id="email-error" className="text-red-400 text-xs" role="alert">{errors.email.message}</p>
                 )}
               </div>
 
               {/* Check-in and Check-out */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm text-text-secondary flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
+                  <label htmlFor="checkIn" className="text-sm text-text-secondary flex items-center gap-2">
+                    <Calendar className="w-4 h-4" aria-hidden="true" />
                     Check-in Date
                   </label>
                   <input
+                    id="checkIn"
                     type="date"
                     min={today}
-                    {...register('checkIn', { 
+                    {...register('checkIn', {
                       required: 'Check-in date is required',
                       validate: (value) => {
                         const selectedDate = new Date(value);
@@ -232,24 +247,27 @@ ${data.specialRequest || 'None'}
                     className={cn(
                       "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
                       "text-text-primary",
-                      "focus:border-accent-gold/50 focus:outline-none transition-colors",
+                      "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors",
                       errors.checkIn && "border-red-500/50"
                     )}
+                    aria-invalid={errors.checkIn ? 'true' : 'false'}
+                    aria-describedby={errors.checkIn ? 'checkIn-error' : undefined}
                   />
                   {errors.checkIn && (
-                    <p className="text-red-400 text-xs">{errors.checkIn.message}</p>
+                    <p id="checkIn-error" className="text-red-400 text-xs" role="alert">{errors.checkIn.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm text-text-secondary flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
+                  <label htmlFor="checkOut" className="text-sm text-text-secondary flex items-center gap-2">
+                    <Calendar className="w-4 h-4" aria-hidden="true" />
                     Check-out Date
                   </label>
                   <input
+                    id="checkOut"
                     type="date"
                     min={checkIn || today}
-                    {...register('checkOut', { 
+                    {...register('checkOut', {
                       required: 'Check-out date is required',
                       validate: (value) => {
                         const selectedDate = new Date(value);
@@ -261,12 +279,14 @@ ${data.specialRequest || 'None'}
                     className={cn(
                       "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
                       "text-text-primary",
-                      "focus:border-accent-gold/50 focus:outline-none transition-colors",
+                      "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors",
                       errors.checkOut && "border-red-500/50"
                     )}
+                    aria-invalid={errors.checkOut ? 'true' : 'false'}
+                    aria-describedby={errors.checkOut ? 'checkOut-error' : undefined}
                   />
                   {errors.checkOut && (
-                    <p className="text-red-400 text-xs">{errors.checkOut.message}</p>
+                    <p id="checkOut-error" className="text-red-400 text-xs" role="alert">{errors.checkOut.message}</p>
                   )}
                 </div>
               </div>
@@ -286,18 +306,21 @@ ${data.specialRequest || 'None'}
 
               {/* Guests */}
               <div className="space-y-2">
-                <label className="text-sm text-text-secondary flex items-center gap-2">
-                  <Users className="w-4 h-4" />
+                <label htmlFor="guests" className="text-sm text-text-secondary flex items-center gap-2">
+                  <Users className="w-4 h-4" aria-hidden="true" />
                   Number of Guests
                 </label>
                 <select
+                  id="guests"
                   {...register('guests', { required: 'Number of guests is required' })}
                   className={cn(
                     "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
                     "text-text-primary",
-                    "focus:border-accent-gold/50 focus:outline-none transition-colors",
+                    "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors",
                     errors.guests && "border-red-500/50"
                   )}
+                  aria-invalid={errors.guests ? 'true' : 'false'}
+                  aria-describedby={errors.guests ? 'guests-error' : undefined}
                 >
                   <option value="">Select guests</option>
                   <option value="1">1 Guest</option>
@@ -307,18 +330,19 @@ ${data.specialRequest || 'None'}
                   <option value="5+">5+ Guests</option>
                 </select>
                 {errors.guests && (
-                  <p className="text-red-400 text-xs">{errors.guests.message}</p>
+                  <p id="guests-error" className="text-red-400 text-xs" role="alert">{errors.guests.message}</p>
                 )}
               </div>
 
               {/* Special Request */}
               <div className="space-y-2">
-                <label className="text-sm text-text-secondary">Special Request (Optional)</label>
+                <label htmlFor="specialRequest" className="text-sm text-text-secondary">Special Request (Optional)</label>
                 <textarea
+                  id="specialRequest"
                   {...register('specialRequest')}
                   placeholder="Any special requirements or preferences..."
                   rows={3}
-                  className="w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg text-text-primary placeholder:text-text-secondary/30 focus:border-accent-gold/50 focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg text-text-primary placeholder:text-text-secondary/30 focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors resize-none"
                 />
               </div>
 

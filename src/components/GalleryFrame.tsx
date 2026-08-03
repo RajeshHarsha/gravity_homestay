@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface GalleryFrameProps {
   image?: string;
@@ -55,24 +56,35 @@ export default function GalleryFrame({ image, title, index }: GalleryFrameProps)
         <div
           className={cn(
             "relative overflow-hidden rounded-lg",
-            "border-2 border-accent-gold/30",
+            "border-2 border-navy",
             "bg-white",
             "transition-all duration-500",
-            isHovered ? "border-accent-gold/60 shadow-2xl shadow-accent-gold/30" : "shadow-xl"
+            isHovered ? "border-navy shadow-2xl shadow-navy/30" : "shadow-xl"
           )}
         >
-          {/* Image placeholder */}
+          {/* Image */}
           <motion.div
             animate={{ scale: isHovered ? 1.1 : 1 }}
             transition={{ duration: 0.6 }}
-            className="aspect-[4/3] bg-gradient-to-br from-secondary-bg to-primary-bg flex items-center justify-center"
+            className="aspect-[4/3] bg-gradient-to-br from-secondary-bg to-primary-bg flex items-center justify-center relative"
           >
-            <div className="text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 border-2 border-accent-gold/30 rounded-lg mx-auto mb-2 sm:mb-3 flex items-center justify-center">
-                <span className="text-accent-gold/50 text-xl sm:text-2xl">📷</span>
+            {image ? (
+              <Image
+                src={image}
+                alt={`${title} at Gravity Homestays - ${title.toLowerCase()}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="lazy"
+              />
+            ) : (
+              <div className="text-center">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 border-2 border-accent-gold/30 rounded-lg mx-auto mb-2 sm:mb-3 flex items-center justify-center">
+                  <span className="text-accent-gold/50 text-xl sm:text-2xl">📷</span>
+                </div>
+                <p className="text-text-secondary text-xs sm:text-sm">{title}</p>
               </div>
-              <p className="text-text-secondary text-xs sm:text-sm">{title}</p>
-            </div>
+            )}
           </motion.div>
 
           {/* Light sweep effect on hover */}

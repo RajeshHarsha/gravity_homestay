@@ -39,11 +39,10 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-  const heroBackgroundImage =
-    'https://content.skyscnr.com/available/2621845743/2621845743_960x576.jpg';
+  const heroBackgroundImage = '/hero-bg.webp';
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32 w-full">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -57,7 +56,7 @@ export default function Hero() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-gold/20 rounded-full blur-3xl animate-glow" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-glow-soft/20 rounded-full blur-3xl animate-glow" style={{ animationDelay: '1s' }} />
       
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto w-full">
         {/* Logo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

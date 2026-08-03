@@ -7,7 +7,6 @@ import { cn } from '@/lib/utils';
 
 interface TestimonialCardProps {
   name: string;
-  // location: string;
   rating: number;
   text: string;
   index: number;
@@ -95,8 +94,6 @@ export default function TestimonialCard({ name, rating, text, index }: Testimoni
             </div>
             <div>
               <p className="text-text-primary font-medium text-sm sm:text-base">{name}</p>
-              {/* <p className="text-text-secondary text-xs sm:text-sm">{location}</p> */}
-              <p className="text-text-secondary text-xs sm:text-sm">  </p>
             </div>
           </div>
 
