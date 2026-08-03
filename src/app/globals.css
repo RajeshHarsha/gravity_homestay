@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-primary-bg text-text-primary antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 162, 76, 0.2);
+  }
+  
+  .glass-dark {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(212, 162, 76, 0.15);
+  }
+  
+  .gold-glow {
+    box-shadow: 0 0 40px rgba(212, 162, 76, 0.3);
+  }
+  
+  .gold-glow-subtle {
+    box-shadow: 0 0 20px rgba(212, 162, 76, 0.2);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #F8F6F2 0%, #D4A24C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-home {
+    background: linear-gradient(135deg, #EBC57B 0%, #D4A24C 45%, #001E3C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .card-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .card-3d-inner {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .card-3d:hover .card-3d-inner {
+    transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+  }
+  
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .float-animation-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .glow-animation {
+    animation: glow 3s ease-in-out infinite;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFBF5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4A24C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C4923C;
+}
+
+/* Selection */
+::selection {
+  background: rgba(212, 162, 76, 0.3);
+  color: #2C2416;
+}
