@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import AmenityTile from './AmenityTile';
-import { Wifi, Car, Coffee, Utensils, Dumbbell, Heart, Shield, Clock } from 'lucide-react';
+import { Wifi, Car, Utensils, Tv, Wind, Droplets, Video, Zap, Navigation } from 'lucide-react';
 
 const amenities = [
   {
@@ -10,40 +10,45 @@ const amenities = [
     title: 'High-Speed WiFi',
     description: 'Complimentary high-speed internet throughout the property for seamless connectivity.',
   },
-  // {
-  //   icon: Car,
-  //   title: 'Valet Parking',
-  //   description: 'Secure valet parking service available 24/7 for your convenience.',
-  // },
   {
-    icon: Coffee,
-    title: 'In-Room Dining',
-    description: 'Gourmet dining delivered to your room anytime, crafted by our expert chefs.',
-  },
-  // {
-  //   icon: Utensils,
-  //   title: 'Fine Dining',
-  //   description: 'Experience exquisite cuisine at our award-winning on-site restaurant.',
-  // },
-  // {
-  //   icon: Dumbbell,
-  //   title: 'Fitness Center',
-  //   description: 'State-of-the-art gym equipment for your wellness routine.',
-  // },
-  // {
-  //   icon: Heart,
-  //   title: 'Luxury Spa',
-  //   description: 'Rejuvenate with our premium spa treatments and therapies.',
-  // },
-  {
-    icon: Shield,
-    title: '24/7 Security',
-    description: 'Round-the-clock security ensuring your safety and peace of mind.',
+    icon: Navigation,
+    title: 'Elevator',
+    description: 'Easy access to all floors with modern elevator facilities.',
   },
   {
-    icon: Clock,
-    title: 'Concierge Service',
-    description: 'Personal concierge assistance for all your needs and requests.',
+    icon: Car,
+    title: 'Parking',
+    description: 'Secure parking space available for guests and visitors.',
+  },
+  {
+    icon: Tv,
+    title: 'TV',
+    description: 'Smart TV with cable/satellite channels for your entertainment.',
+  },
+  {
+    icon: Wind,
+    title: 'AC',
+    description: 'Air-conditioned rooms for a comfortable stay in all seasons.',
+  },
+  {
+    icon: Droplets,
+    title: 'Geyser',
+    description: 'Hot water available 24/7 with modern geyser facilities.',
+  },
+  {
+    icon: Utensils,
+    title: 'Kitchen Facilities',
+    description: 'Fully equipped kitchen for your cooking needs.',
+  },
+  {
+    icon: Video,
+    title: '24/7 CCTV',
+    description: 'Round-the-clock CCTV surveillance for enhanced security.',
+  },
+  {
+    icon: Zap,
+    title: 'Power Back Up',
+    description: 'Uninterrupted power supply with backup generator.',
   },
 ];
 

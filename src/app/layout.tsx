@@ -7,11 +7,11 @@ const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
 export const metadata: Metadata = {
   title: {
-    default: "Gravity Homestays | Luxury Boutique Stays in Kerala",
+    default: "Gravity Homestays | Luxury Boutique Stays in Vizag",
     template: "%s | Gravity Homestays"
   },
-  description: "Experience luxury that feels like home at Gravity Homestays in Kerala. Boutique stays with Normal Rooms (₹2,000/night) and Deluxe Rooms (₹3,000/night). Book your perfect getaway today.",
-  keywords: ["luxury homestay", "boutique hotel", "Kerala homestay", "budget luxury rooms", "Gravity Homestays", "Kerala accommodation", "boutique stays", "heritage homestay"],
+  description: "Experience luxury that feels like home at Gravity Homestays in Vizag. Boutique stays with Normal Rooms (₹2,000/night) and Deluxe Rooms (₹3,000/night). Book your perfect getaway today.",
+  keywords: ["luxury homestay", "boutique hotel", "Vizag homestay", "budget luxury rooms", "Gravity Homestays", "Vizag accommodation", "boutique stays", "heritage homestay"],
   authors: [{ name: "Gravity Homestays" }],
   creator: "Gravity Homestays",
   publisher: "Gravity Homestays",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://gravityhomestays.com",
-    title: "Gravity Homestays | Luxury Boutique Stays in Kerala",
+    title: "Gravity Homestays | Luxury Boutique Stays in Vizag",
     description: "Experience luxury that feels like home. Boutique stays crafted with warmth, comfort, and timeless elegance.",
     siteName: "Gravity Homestays",
     images: [
@@ -44,18 +44,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gravity Homestays | Luxury Boutique Stays in Kerala",
+    title: "Gravity Homestays | Luxury Boutique Stays in Vizag",
     description: "Experience luxury that feels like home. Boutique stays crafted with warmth, comfort, and timeless elegance.",
     images: ["/hero-bg.webp"],
     creator: "@gravityhomestays",
   },
   icons: {
     icon: [
-      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo.png', sizes: '16x16', type: 'image/png' },
+      { url: '/logo3.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo3.png', sizes: '16x16', type: 'image/png' },
     ],
     apple: [
-      { url: '/logo.png', sizes: '180x180', type: 'image/png' },
+      { url: '/logo3.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   manifest: "/manifest.json",

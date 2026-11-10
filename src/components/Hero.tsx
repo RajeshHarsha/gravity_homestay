@@ -72,7 +72,7 @@ export default function Hero() {
 
         {/* Main heading */}
         <h2 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-light text-white leading-tight mb-4 md:mb-6">
-          Experience Luxury
+          Experience The Luxury
           <br />
           <span className="text-accent-gold font-medium">That Feels Like Home</span>
         </h2>

@@ -65,7 +65,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-accent-gold mt-1 flex-shrink-0" />
                 <span className="text-text-secondary text-sm">
-                  Swarna bharathi, indoor stadium road, Resapuvanipalem, Dwaraka Nagar, Visakhapatnam, Andhra Prades
+                  11-9-29/2b , near BJP party office,Daspalla hills,panduranga puram, visakhapatnam,530002
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -78,7 +78,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent-gold flex-shrink-0" />
                 <a href="mailto:info@gravityhomestays.com" className="text-text-secondary text-sm hover:text-accent-gold transition-colors">
-                  gravityhomestays@gmail.com
+                  gravityhomestays888@gmail.com
                 </a>
               </li>
             </ul>
