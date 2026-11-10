@@ -1,3 +1,4 @@
+import React from 'react';
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -42,15 +43,35 @@ const structuredData = {
         },
         {
           "@type": "LocationFeatureSpecification",
-          name: "In-Room Dining"
+          name: "Elevator"
         },
         {
           "@type": "LocationFeatureSpecification",
-          name: "24/7 Security"
+          name: "Parking"
         },
         {
           "@type": "LocationFeatureSpecification",
-          name: "Concierge Service"
+          name: "TV"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "AC"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Geyser"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Kitchen Facilities"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "24/7 CCTV"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Power Back Up"
         }
       ],
       hasOfferCatalog: {
