@@ -7,8 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 
 /**
  * Triggers sending email to target.
- * On mobile devices (Android/iOS): Directly launches the official Gmail App.
- * On desktop (Windows/Mac): Opens Gmail Web composer in a new browser tab.
+ * On Android: Directly launches the official Gmail App via SENDTO intent.
+ * On iOS: Directly launches the official Gmail App via googlegmail scheme.
+ * On Desktop (Windows/Mac): Opens Gmail Web composer in a new browser tab.
  */
 export function openGmail(email = 'gravityhomestays@gmail.com', subject = 'Enquiry Request') {
   if (typeof window === 'undefined') return;
@@ -21,10 +22,10 @@ export function openGmail(email = 'gravityhomestays@gmail.com', subject = 'Enqui
   const encodedSubject = encodeURIComponent(subject);
 
   if (isAndroid) {
-    // Android: Launch official Gmail app (com.google.android.gm) directly
-    window.location.href = `intent://cm?to=${email}&su=${encodedSubject}#Intent;scheme=googlegmail;package=com.google.android.gm;end`;
+    // Android: Launch Gmail app (com.google.android.gm) directly using SENDTO action
+    window.location.href = `intent:${email}?subject=${encodedSubject}#Intent;action=android.intent.action.SENDTO;scheme=mailto;package=com.google.android.gm;end`;
   } else if (isIOS) {
-    // iOS: Open the Gmail app directly using googlegmail scheme
+    // iOS: Open the Gmail app directly using googlegmail scheme, fallback to mailto
     window.location.href = `googlegmail:///co?to=${email}&subject=${encodedSubject}`;
     setTimeout(() => {
       window.location.href = `mailto:${email}?subject=${encodedSubject}`;
