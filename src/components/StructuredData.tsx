@@ -82,9 +82,9 @@ const structuredData = {
             "@type": "Offer",
             itemOffered: {
               "@type": "LodgingReservation",
-              name: "Normal Room",
-              description: "Comfortable and cozy room perfect for a relaxing stay with all essential amenities.",
-              price: "2000",
+              name: "Deluxe Room",
+              description: "Spacious and elegantly designed room with premium amenities for a luxurious experience.",
+              price: "3000",
               priceCurrency: "INR",
               accommodationType: "Room"
             }
@@ -93,11 +93,33 @@ const structuredData = {
             "@type": "Offer",
             itemOffered: {
               "@type": "LodgingReservation",
-              name: "Deluxe Room",
-              description: "Spacious and elegantly designed room with premium amenities for a luxurious experience.",
-              price: "3000",
+              name: "Executive Room",
+              description: "Sophisticated and comfortable room featuring dedicated work space and upscale furnishings.",
+              price: "3500",
               priceCurrency: "INR",
               accommodationType: "Room"
+            }
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "LodgingReservation",
+              name: "Suite Room",
+              description: "Lavish suite featuring a private lounge, plush master bedroom, and premium hospitality.",
+              price: "4500",
+              priceCurrency: "INR",
+              accommodationType: "Room"
+            }
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "LodgingReservation",
+              name: "2BHK",
+              description: "Fully furnished two-bedroom apartment with living hall and kitchen, ideal for families.",
+              price: "6000",
+              priceCurrency: "INR",
+              accommodationType: "Suite"
             }
           }
         ]

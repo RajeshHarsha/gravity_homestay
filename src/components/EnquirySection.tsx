@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Send, Calendar, Users } from 'lucide-react';
+import { Send, Calendar, Users, Bed } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
@@ -12,6 +12,7 @@ interface EnquiryFormData {
   fullName: string;
   phone: string;
   email: string;
+  roomType?: string;
   checkIn: string;
   checkOut: string;
   guests: string;
@@ -32,7 +33,22 @@ export default function EnquirySection() {
     formState: { errors },
     reset,
     watch,
+    setValue,
   } = useForm<EnquiryFormData>();
+
+  // Listen for room selection from Room cards
+  useEffect(() => {
+    const handleRoomSelect = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      if (customEvent.detail) {
+        setValue('roomType', customEvent.detail);
+        toast.success(`Selected ${customEvent.detail}! Please continue your enquiry.`);
+      }
+    };
+
+    window.addEventListener('select-room', handleRoomSelect);
+    return () => window.removeEventListener('select-room', handleRoomSelect);
+  }, [setValue]);
 
   const checkIn = watch('checkIn');
   const checkOut = watch('checkOut');
@@ -62,13 +78,14 @@ export default function EnquirySection() {
     const message = `
 *New Enquiry - Gravity Homestays*
 
+*Room Type:* ${data.roomType || 'Not specified'}
 *Name:* ${data.fullName}
 *Phone:* ${data.phone}
-*Email:* ${data.email}
+*Email:* ${data.email || 'N/A'}
 
 *Stay Duration:* ${data.checkIn} to ${data.checkOut}
 *Total Days:* ${totalDays || 'N/A'}
-*Guests:* ${data.guests}
+*Guests:* ${data.guests || 'Not specified'}
 
 *Special Request:*
 ${data.specialRequest || 'None'}
@@ -96,7 +113,7 @@ ${data.specialRequest || 'None'}
   };
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:gravityhomestays@gmail.com?subject=Enquiry%20Request';
+    window.open('https://mail.google.com/mail/?view=cm&fs=1&to=gravityhomestays@gmail.com&su=Enquiry%20Request', '_blank');
   };
 
   return (
@@ -297,33 +314,59 @@ ${data.specialRequest || 'None'}
                 </motion.div>
               )}
 
-              {/* Guests */}
-              <div className="space-y-2">
-                <label htmlFor="guests" className="text-sm text-text-secondary flex items-center gap-2">
-                  <Users className="w-4 h-4" aria-hidden="true" />
-                  Number of Guests
-                </label>
-                <select
-                  id="guests"
-                  {...register('guests')}
-                  className={cn(
-                    "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
-                    "text-text-primary",
-                    "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors"
+              {/* Room Type and Guests */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                {/* Room Type */}
+                <div className="space-y-2">
+                  <label htmlFor="roomType" className="text-sm text-text-secondary flex items-center gap-2">
+                    <Bed className="w-4 h-4" aria-hidden="true" />
+                    Room Type
+                  </label>
+                  <select
+                    id="roomType"
+                    {...register('roomType')}
+                    className={cn(
+                      "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
+                      "text-text-primary",
+                      "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors"
+                    )}
+                  >
+                    <option value="">Select room type</option>
+                    <option value="Deluxe Room">Deluxe Room (₹3,000/day)</option>
+                    <option value="Executive Room">Executive Room (₹3,500/day)</option>
+                    <option value="Suite Room">Suite Room (₹4,500/day)</option>
+                    <option value="2BHK">2BHK (₹6,000/day)</option>
+                  </select>
+                </div>
+
+                {/* Guests */}
+                <div className="space-y-2">
+                  <label htmlFor="guests" className="text-sm text-text-secondary flex items-center gap-2">
+                    <Users className="w-4 h-4" aria-hidden="true" />
+                    Number of Guests
+                  </label>
+                  <select
+                    id="guests"
+                    {...register('guests')}
+                    className={cn(
+                      "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
+                      "text-text-primary",
+                      "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors"
+                    )}
+                    aria-invalid={errors.guests ? 'true' : 'false'}
+                    aria-describedby={errors.guests ? 'guests-error' : undefined}
+                  >
+                    <option value="">Select guests</option>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5+">5+ Guests</option>
+                  </select>
+                  {errors.guests && (
+                    <p id="guests-error" className="text-red-400 text-xs" role="alert">{errors.guests.message}</p>
                   )}
-                  aria-invalid={errors.guests ? 'true' : 'false'}
-                  aria-describedby={errors.guests ? 'guests-error' : undefined}
-                >
-                  <option value="">Select guests</option>
-                  <option value="1">1 Guest</option>
-                  <option value="2">2 Guests</option>
-                  <option value="3">3 Guests</option>
-                  <option value="4">4 Guests</option>
-                  <option value="5+">5+ Guests</option>
-                </select>
-                {errors.guests && (
-                  <p id="guests-error" className="text-red-400 text-xs" role="alert">{errors.guests.message}</p>
-                )}
+                </div>
               </div>
 
               {/* Special Request */}

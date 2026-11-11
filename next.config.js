@@ -24,6 +24,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'st.hzcdn.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
 }
