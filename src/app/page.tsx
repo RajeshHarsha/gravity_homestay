@@ -3,6 +3,7 @@ import RoomsSection from '@/components/RoomsSection';
 import AmenitiesSection from '@/components/AmenitiesSection';
 import GallerySection from '@/components/GallerySection';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import ContactSection from '@/components/ContactSection';
 import EnquirySection from '@/components/EnquirySection';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
@@ -20,27 +21,30 @@ export default function Home() {
       </section>
 
       {/* Rooms Section */}
-      <section id="rooms" className="relative w-full" aria-labelledby="rooms-heading">
+      <section id="rooms" className="relative w-full scroll-mt-20 sm:scroll-mt-24" aria-labelledby="rooms-heading">
         <RoomsSection />
       </section>
 
       {/* Amenities Section */}
-      <section id="amenities" className="relative w-full" aria-labelledby="amenities-heading">
+      <section id="amenities" className="relative w-full scroll-mt-20 sm:scroll-mt-24" aria-labelledby="amenities-heading">
         <AmenitiesSection />
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="relative w-full" aria-labelledby="gallery-heading">
+      <section id="gallery" className="relative w-full scroll-mt-20 sm:scroll-mt-24" aria-labelledby="gallery-heading">
         <GallerySection />
       </section>
 
       {/* Testimonials Section */}
-      <section id="reviews" className="relative w-full" aria-labelledby="reviews-heading">
+      <section id="reviews" className="relative w-full scroll-mt-20 sm:scroll-mt-24" aria-labelledby="reviews-heading">
         <TestimonialsSection />
       </section>
 
+      {/* Contact Section */}
+      <ContactSection />
+
       {/* Enquiry Section */}
-      <section id="contact" className="relative w-full" aria-labelledby="contact-heading">
+      <section id="enquiry" className="relative w-full scroll-mt-20 sm:scroll-mt-24" aria-labelledby="enquiry-heading">
         <EnquirySection />
       </section>
 

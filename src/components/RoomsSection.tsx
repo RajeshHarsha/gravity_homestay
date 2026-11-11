@@ -22,7 +22,7 @@ const rooms = [
 
 export default function RoomsSection() {
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 px-4 w-full">
+    <section className="relative py-12 sm:py-16 md:py-20 px-4 w-full">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary-bg via-secondary-bg/50 to-primary-bg" />
       <div className="absolute top-0 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-accent-gold/5 rounded-full blur-3xl" />
@@ -34,19 +34,19 @@ export default function RoomsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 md:mb-10"
         >
-          <h2 id="rooms-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-text-primary mb-4">
+          <h2 id="rooms-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-text-primary mb-3">
             Our <span className="text-gradient">Luxury Rooms</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-text-secondary max-w-2xl mx-auto px-4">
+          <p className="text-xs sm:text-sm md:text-base text-text-secondary max-w-2xl mx-auto px-4">
             Each room is thoughtfully designed to provide the perfect blend of comfort, elegance, and modern amenities.
           </p>
         </motion.div>
 
         {/* Room cards */}
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl">
+          <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-4xl w-full">
             {rooms.map((room, index) => (
               <RoomCard key={index} {...room} index={index} />
             ))}

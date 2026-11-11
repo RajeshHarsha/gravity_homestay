@@ -23,7 +23,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 px-4 w-full overflow-hidden">
+    <section className="relative py-12 sm:py-16 md:py-20 px-4 w-full overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary-bg via-secondary-bg/50 to-primary-bg" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] bg-accent-gold/5 rounded-full blur-3xl" />
@@ -35,18 +35,28 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 md:mb-10"
         >
-          <h2 id="reviews-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-text-primary mb-4">
+          <h2 id="reviews-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-text-primary mb-3">
             Guest <span className="text-gradient">Stories</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-text-secondary max-w-2xl mx-auto px-4">
+          <p className="text-xs sm:text-sm md:text-base text-text-secondary max-w-2xl mx-auto px-4">
             Hear from our guests who have experienced the warmth and luxury of Gravity Homestays.
           </p>
         </motion.div>
 
-        {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+        {/* Mobile: horizontal scroll slider */}
+        <div className="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-pl-4 pb-4 pt-1 -mx-4 px-4 scrollbar-hide">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="snap-start flex-shrink-0 w-[82vw] max-w-[340px]">
+              <TestimonialCard {...testimonial} index={index} />
+            </div>
+          ))}
+          <div className="flex-shrink-0 w-1" />
+        </div>
+
+        {/* Desktop: grid */}
+        <div className="hidden md:grid grid-cols-3 gap-6 md:gap-8 items-stretch">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} {...testimonial} index={index} />
           ))}

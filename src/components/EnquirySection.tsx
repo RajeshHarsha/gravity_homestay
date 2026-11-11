@@ -96,11 +96,11 @@ ${data.specialRequest || 'None'}
   };
 
   const handleEmailClick = () => {
-    window.open('mailto:info@gravityhomestays.com', '_self');
+    window.open('https://mail.google.com/mail/?view=cm&fs=1&to=gravityhomestays@gmail.com&su=Enquiry%20Request', '_blank');
   };
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 px-4 w-full overflow-hidden">
+    <section className="relative py-12 sm:py-16 md:py-20 px-4 w-full overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary-bg via-secondary-bg/30 to-primary-bg" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] md:w-[1000px] h-[500px] sm:h-[700px] md:h-[1000px] bg-accent-gold/5 rounded-full blur-3xl" />
@@ -112,12 +112,12 @@ ${data.specialRequest || 'None'}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 md:mb-10"
         >
-          <h2 id="contact-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-text-primary mb-4">
+          <h2 id="contact-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-text-primary mb-3">
             Live Luxury <span className="text-gradient">& Comfort</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-text-secondary max-w-2xl mx-auto px-4">
+          <p className="text-xs sm:text-sm md:text-base text-text-secondary max-w-2xl mx-auto px-4">
             Experience the perfect blend of elegance and warmth. Your dream getaway awaits at Gravity Homestays.
           </p>
         </motion.div>
@@ -131,7 +131,7 @@ ${data.specialRequest || 'None'}
           className="relative"
         >
           {/* Main form panel */}
-          <div className="bg-white border-4 border-navy rounded-2xl p-6 sm:p-8 md:p-12 shadow-2xl shadow-accent-gold/10">
+          <div className="bg-white border-4 border-navy rounded-2xl p-5 sm:p-7 md:p-9 shadow-2xl shadow-accent-gold/10">
             {/* Success overlay */}
             {isSuccess && (
               <motion.div
@@ -201,21 +201,14 @@ ${data.specialRequest || 'None'}
                 <label htmlFor="email" className="text-sm text-text-secondary">Email</label>
                 <input
                   id="email"
-                  {...register('email', {
-                    required: 'Email is required',
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Invalid email address'
-                    }
-                  })}
+                  {...register('email')}
                   placeholder="john@example.com"
                   autoComplete="email"
                   type="email"
                   className={cn(
                     "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
                     "text-text-primary placeholder:text-text-secondary/30",
-                    "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors",
-                    errors.email && "border-red-500/50"
+                    "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors"
                   )}
                   aria-invalid={errors.email ? 'true' : 'false'}
                   aria-describedby={errors.email ? 'email-error' : undefined}
@@ -312,12 +305,11 @@ ${data.specialRequest || 'None'}
                 </label>
                 <select
                   id="guests"
-                  {...register('guests', { required: 'Number of guests is required' })}
+                  {...register('guests')}
                   className={cn(
                     "w-full px-4 py-3 bg-secondary-bg/50 border border-accent-gold/30 rounded-lg",
                     "text-text-primary",
-                    "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors",
-                    errors.guests && "border-red-500/50"
+                    "focus:border-accent-gold/50 focus:outline-none focus:ring-2 focus:ring-accent-gold/20 transition-colors"
                   )}
                   aria-invalid={errors.guests ? 'true' : 'false'}
                   aria-describedby={errors.guests ? 'guests-error' : undefined}

@@ -20,8 +20,8 @@ const structuredData = {
       },
       geo: {
         "@type": "GeoCoordinates",
-        latitude: "17.731956",
-        longitude: "83.315565"
+        latitude: "17.716228",
+        longitude: "83.316191"
       },
       priceRange: "₹2,000 - ₹3,000",
       starRating: {
@@ -103,8 +103,8 @@ const structuredData = {
         ]
       },
       sameAs: [
-        "https://www.facebook.com/gravityhomestays",
-        "https://www.instagram.com/gravityhomestays"
+        "https://www.facebook.com/people/Gravity-homestays/61592655687621/?sk=directory_links",
+        "https://www.instagram.com/gravityhomestays_888/"
       ]
     },
     {

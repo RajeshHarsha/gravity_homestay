@@ -42,7 +42,7 @@ export default function Hero() {
   const heroBackgroundImage = '/hero-bg.webp';
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32 w-full">
+    <section ref={heroRef} className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-28 pb-12 w-full">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -90,7 +90,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => {
-              const element = document.querySelector('#contact');
+              const element = document.querySelector('#enquiry');
               if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
               }

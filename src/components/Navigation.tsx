@@ -1,34 +1,12 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
-  
-  const backgroundColor = useTransform(
-    scrollY,
-    [0, 100],
-    ['rgba(0, 30, 60, 1)', 'rgba(255, 251, 245, 0.9)']
-  );
-
-  const borderColor = useTransform(
-    scrollY,
-    [0, 100],
-    ['rgba(212, 162, 76, 0)', 'rgba(212, 162, 76, 0.2)']
-  );
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -43,21 +21,19 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navOffset,
+        behavior: 'smooth',
+      });
     }
   };
 
   return (
     <>
-      <motion.nav
-        style={{
-          backgroundColor,
-          borderColor,
-        }}
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 w-full",
-          isScrolled ? "py-3" : "py-4"
-        )}
+      <nav
+        className="fixed top-0 left-0 right-0 z-50 bg-[#001E3C] border-b border-[#D4A24C]/20 py-3 sm:py-4 transition-all duration-300 w-full shadow-lg"
         role="navigation"
         aria-label="Main navigation"
       >
@@ -90,22 +66,19 @@ export default function Navigation() {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className={cn(
-                  "transition-colors text-base font-bold tracking-wide focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 rounded",
-                  isScrolled ? "text-text-secondary hover:text-accent-gold" : "text-white hover:text-accent-gold"
-                )}
+                className="text-white hover:text-accent-gold transition-colors text-base font-bold tracking-wide focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 rounded"
               >
                 {link.name}
               </motion.a>
             ))}
             <motion.a
-              href="#contact"
+              href="#enquiry"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('#contact');
+                scrollToSection('#enquiry');
               }}
               className="px-4 sm:px-6 py-2 bg-accent-gold text-primary-bg text-base font-bold rounded-none hover:bg-glow-soft transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2"
             >
@@ -118,7 +91,7 @@ export default function Navigation() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={cn("md:hidden p-2", isScrolled ? "text-text-primary" : "text-white")}
+            className="md:hidden p-2 text-white"
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
@@ -126,7 +99,7 @@ export default function Navigation() {
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </motion.button>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
@@ -155,10 +128,10 @@ export default function Navigation() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="#enquiry"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('#contact');
+                scrollToSection('#enquiry');
               }}
               className="w-full max-w-xs px-8 py-3 bg-accent-gold text-primary-bg font-medium rounded-none focus:outline-none focus:ring-2 focus:ring-accent-gold"
             >

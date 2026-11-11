@@ -121,3 +121,12 @@
   background: rgba(212, 162, 76, 0.3);
   color: #2C2416;
 }
+
+/* Hide scrollbar utility (for mobile sliders) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
