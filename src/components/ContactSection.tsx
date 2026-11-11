@@ -86,7 +86,7 @@ export default function ContactSection() {
                     <h4 className="text-text-primary font-semibold text-xs sm:text-sm mb-0.5">Email</h4>
                     <p className="text-xs sm:text-sm">
                       <a
-                        href="https://mail.google.com/mail/?view=cm&fs=1&to=gravityhomestays@gmail.com&su=Enquiry%20Request"
+                        href="https://maps.app.goo.gl/yHyS275NqS2it7HJA"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => {
