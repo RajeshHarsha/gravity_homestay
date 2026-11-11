@@ -96,7 +96,7 @@ ${data.specialRequest || 'None'}
   };
 
   const handleEmailClick = () => {
-    window.open('https://mail.google.com/mail/?view=cm&fs=1&to=gravityhomestays@gmail.com&su=Enquiry%20Request', '_blank');
+    window.location.href = 'mailto:gravityhomestays@gmail.com?subject=Enquiry%20Request';
   };
 
   return (

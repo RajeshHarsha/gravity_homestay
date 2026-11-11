@@ -1,6 +1,6 @@
 'use client';
 
-import { Bed, Bath, Maximize, Star } from 'lucide-react';
+import { Bed, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
@@ -61,7 +61,7 @@ export default function RoomCard({ title, description, price, image, amenities }
         <p className="text-text-secondary text-xs sm:text-sm mb-4 line-clamp-2">{description}</p>
 
         {/* Amenities */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2">
           {amenities.slice(0, 3).map((amenity, i) => (
             <span
               key={i}
@@ -70,25 +70,6 @@ export default function RoomCard({ title, description, price, image, amenities }
               {amenity}
             </span>
           ))}
-        </div>
-
-        {/* Room specs */}
-        <div className={cn(
-          "flex items-center gap-3 sm:gap-4 text-text-secondary text-xs sm:text-sm",
-          "border-t border-accent-gold/20 pt-3 sm:pt-4"
-        )}>
-          <div className="flex items-center gap-1">
-            <Maximize className="w-3 h-3 sm:w-4 sm:h-4" />
-            <span>45 m²</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Bed className="w-3 h-3 sm:w-4 sm:h-4" />
-            <span>King</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Bath className="w-3 h-3 sm:w-4 sm:h-4" />
-            <span>Ensuite</span>
-          </div>
         </div>
       </div>
     </div>

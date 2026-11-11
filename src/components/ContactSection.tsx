@@ -85,9 +85,7 @@ export default function ContactSection() {
                     <h4 className="text-text-primary font-semibold text-xs sm:text-sm mb-0.5">Email</h4>
                     <p className="text-xs sm:text-sm">
                       <a
-                        href="https://mail.google.com/mail/?view=cm&fs=1&to=gravityhomestays@gmail.com&su=Enquiry%20Request"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="mailto:gravityhomestays@gmail.com?subject=Enquiry%20Request"
                         className="text-text-secondary hover:text-accent-gold font-medium transition-colors break-all"
                       >
                         gravityhomestays@gmail.com
