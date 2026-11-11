@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Send, Calendar, Users, Bed } from 'lucide-react';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
+import { cn, openGmail } from '@/lib/utils';
 
 interface EnquiryFormData {
   fullName: string;
@@ -113,7 +113,7 @@ ${data.specialRequest || 'None'}
   };
 
   const handleEmailClick = () => {
-    window.open('https://mail.google.com/mail/?view=cm&fs=1&to=gravityhomestays@gmail.com&su=Enquiry%20Request', '_blank');
+    openGmail('gravityhomestays@gmail.com', 'Enquiry Request');
   };
 
   return (

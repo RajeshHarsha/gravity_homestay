@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { openGmail } from '@/lib/utils';
 
 export default function ContactSection() {
   return (
@@ -88,7 +89,11 @@ export default function ContactSection() {
                         href="https://mail.google.com/mail/?view=cm&fs=1&to=gravityhomestays@gmail.com&su=Enquiry%20Request"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-text-secondary hover:text-accent-gold font-medium transition-colors break-all"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          openGmail('gravityhomestays@gmail.com', 'Enquiry Request');
+                        }}
+                        className="text-text-secondary hover:text-accent-gold font-medium transition-colors break-all cursor-pointer"
                       >
                         gravityhomestays@gmail.com
                       </a>
